@@ -95,10 +95,10 @@ scm_version()
 		# git-update-index(1), git-diff-index(1), and git-status(1).
 		if {
 			git --no-optional-locks status -uno --porcelain 2>/dev/null ||
-			git diff-index --name-only HEAD
-		} | grep -qvE '^(.. )?scripts/package'; then
-			printf '%s' -dirty
-		fi
+               #			git diff-index --name-only HEAD
+               #		} | grep -qvE '^(.. )?scripts/package'; then
+               #			printf '%s' -dirty
+               # 		fi
 
 		# All done with git
 		return
@@ -120,9 +120,9 @@ scm_version()
 
 		# Are there uncommitted changes?
 		# These are represented by + after the changeset id.
-		case "$hgid" in
-			*+|*+\ *) printf '%s' -dirty ;;
-		esac
+		#case "$hgid" in
+		#	*+|*+\ *) printf '%s' -dirty ;;
+		#esac
 
 		# All done with mercurial
 		return
